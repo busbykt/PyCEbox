@@ -61,7 +61,7 @@ def ice(data, column, predict, num_grid_points=None):
     """
     x_s = _get_grid_points(data[column], num_grid_points)
     ice_data, orig_column = _to_ice_data(data, column, x_s)
-    ice_data['ice_y'] = predict(ice_data.values[:,1])
+    ice_data['ice_y'] = predict(ice_data.values)[:,1]
     ice_data['data_{}'.format(column)] = orig_column
 
     other_columns = ['data_{}'.format(column)] + [col for col in data.columns if col != column]
